@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 
 const Cart = ({ cart }) => {
 
-
     const cartList = cart.map(item => {
         return (
             <h3 key={item.id} className={styles.component}>

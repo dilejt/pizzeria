@@ -1,1 +1,38 @@
+$navColor: #0b0907;
+$navColorHover: #c32b0e;
+$navBgColor : #cd9761;
+$dropdowmMenuBgColor: #fbd771;
+$dropdowmMenuBgColorHover: #f4b043;
+$logoTextColorTwo: #41912b;
+$logoTextColorOne: #d42e22;
+a {
+    text-decoration: initial !important;
+    color: initial !important;
+    &:hover{
+        text-decoration: initial !important;
+        color: $navColorHover !important;
+    }
+}
+nav{
+    background-color: $navBgColor;
+    a{
+        font-weight: 700 !important;
+        color: $navColor !important;
+    }
+    .dropdown-menu{
+        background-color: $dropdowmMenuBgColor !important;
+        a{
+            font-weight: 500 !important;
+            &:hover{
+                background-color: $dropdowmMenuBgColorHover;
+            }
+        }
+    }
+    .partOne{
+        color: $logoTextColorOne;
+    }
+    .partTwo{
+        color: $logoTextColorTwo;
+    }
+}
 @import "~bootstrap/scss/bootstrap";

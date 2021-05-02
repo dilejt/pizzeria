@@ -7,7 +7,6 @@ const ProductDetails = ({ match, addToCart }) => {
 
     const product = products.find(prod => match.params.id == prod.id)
 
-
     return (
         <div className={styles.container}>
             <Link to='/cart' className={styles.cart}> koszyk </Link>
