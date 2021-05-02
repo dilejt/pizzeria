@@ -2,25 +2,27 @@ import React from 'react'
 import products from './products'
 import styles from './ProductList.module.scss'
 import { Link } from 'react-router-dom'
-import { Button } from 'react-bootstrap';
+import { Container, Row, Col, Image, Button } from 'react-bootstrap';
 
 const ProductList = () => {
 
     const htmlList = products.map(product => {
-
         return (
-            <div key={product.id} className={styles.product}>
-                <Link to={`/details/${product.id}`}> <img src={product.photo} /> </Link>
-                <p> {product.name} </p>
-                <h3> Cena: {product.price} zł </h3>
-            </div>
+            <Col key={product.id} md="6">
+                <Image src={product.img} className={styles.img} fluid rounded />
+                <h1 className={styles.productName}> {product.name} </h1>
+                <h5 className={styles.productPrice}>Cena od: <span className="font-weight-bold">{product.price[0]} zł</span></h5>
+                <Link to={`/details/${product.id}`}><Button variant="danger" className="mt-3">Wybierz</Button></Link>
+            </Col>
         )
     })
 
     return (
-        <div className={styles.products}>
-            {htmlList}
-        </div>
+        <Container className={styles.container} fluid="md">
+            <Row className="text-center">
+                {htmlList}
+            </Row>
+        </Container>
     )
 }
 
