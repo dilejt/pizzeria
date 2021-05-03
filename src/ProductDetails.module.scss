@@ -1,18 +1,17 @@
 $headerColor: #c32b0e;
 $numberOfOptions: 4;
 
-body{
-    background: wheat;
-}
-
 .container{
     margin-top: 7rem!important;
+    .pizza{
+        position: absolute;
+        right: -33%;
+        max-width: 50%;
+    }
     .img{
         max-height: 60%;
     }
-    input[type=radio] {
-        display:none !important;
-    }
+
 
     .sizeName{
         background-color: #41912b;
@@ -30,20 +29,19 @@ body{
         transform: translate(-50%, -50%);
     }
     .device {
-        position: absolute;
-        top: 12%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 70%;
         .range {
             position: relative;
             height: 50px;
             user-select: none;
+            .size{
+                font-weight: 700;
+                top: -30%;
+                position: relative;
+            }
             &::before {
                 content: "";
                 position: absolute;
                 height: 2px;
-                width: 100%;
                 width: calc(100% * (#{$numberOfOptions - 1} / #{$numberOfOptions}));
                 top: 50%;
                 left: 50%;
@@ -51,7 +49,6 @@ body{
                 background: #000;
             }
             input, label {
-                box-sizing: border-box;
                 flex: 1;
                 user-select: none;
                 cursor: pointer;
@@ -59,7 +56,6 @@ body{
             label {
                 display: inline-block;
                 position: relative;
-                width: 20%;
                 height: 100%;
                 user-select: none;
                 &::before {
@@ -68,9 +64,9 @@ body{
                     left: 50%;
                     padding-top: 10px;
                     transform: translate(-50%, 45px);
-                    font-size: 14px;
+                    font-size: 22px;
                     letter-spacing: 0.4px;
-                    font-weight: 400;
+                    font-weight: 900;
                     white-space: nowrap;
                     opacity: 0.85;
                     transition: all 0.15s ease-in-out;
@@ -100,24 +96,26 @@ body{
                 display: none;
                 &:checked {
                     + label::before {
-                        font-weight: 800;
+                        color: $headerColor;
+                        transform-origin: 77% -15%;
+                        transform: scale(2.3);
                         opacity: 1;
                     }
                     + label::after {
                         border-width: 4px;
                         transform: translate(-50%, -50%) scale(0.75);
                     }
-                    ~ .debtAmountPos {
+                    ~ .point {
                         opacity: 1;
                     }
                     @for $i from 1 through $numberOfOptions {
-                        &:nth-child(#{$i * 2 - 1}) ~ .debtAmountPos {
+                        &:nth-child(#{$i * 2 - 1}) ~ .point {
                             left: #{($i * 100%/$numberOfOptions) - 100%/(2*$numberOfOptions)};
                         }
                     }
                 }
             }
-            .debtAmountPos {
+            .point {
                 display: block;
                 position: absolute;
                 top: 50%;
@@ -147,6 +145,42 @@ body{
             }
         }
     }
-
-
+    .extra{
+        & label {
+            display: block;
+            padding: 20px 10px;
+            text-align: center;
+            transition: all 0.15s ease-in-out;
+            background: #fff;
+            border-radius: 10px;
+            box-sizing: border-box;
+            width: 48%;
+            font-size: 64px;
+            cursor: pointer;
+        }
+        & input {
+            display: none;
+            ~ label:nth-of-type(1){
+                box-shadow: inset 0 0 0 0px $headerColor, 0 10px 15px -20px rgba($headerColor, 0);
+            }
+            &:nth-of-type(1):checked {
+                ~ label:nth-of-type(1){
+                    box-shadow: inset 0 0 0 4px $headerColor, 0 15px 15px -10px rgba(darken($headerColor, 10%), 0.375);
+                }
+                ~ label:nth-of-type(2){
+                    box-shadow: inset 0 0 0 0px $headerColor, 0 10px 15px -20px rgba($headerColor, 0);
+                }
+            }
+            &:nth-of-type(2):checked {
+                ~ label:nth-of-type(1){
+                    box-shadow: inset 0 0 0 0px $headerColor, 0 10px 15px -20px rgba($headerColor, 0);
+                }
+                ~ label:nth-of-type(2){
+                    box-shadow: inset 0 0 0 4px $headerColor, 0 15px 15px -10px rgba(darken($headerColor, 10%), 0.375);
+                }
+            }
+        }
+    }
+    
 }
+
