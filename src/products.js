@@ -1,6 +1,5 @@
 const products = [
     {
-        // 22 32 45 70-> MonkaGIGA
         id: 1,
         name: 'Hawajska',
         price: [13, 22, 34, 51],
