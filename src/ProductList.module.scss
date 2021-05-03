@@ -1,8 +1,9 @@
-$productNameColor: #dd4f23;
+$productNameColor: #41912b;
 $productPriceColor: #c32b0e;
 $bgColor : #fffa8a;
+
 .container{
-    margin-top: 5rem!important;
+    margin-top: 7rem!important;
     .productName{
         color: $productNameColor;
     }
@@ -11,7 +12,8 @@ $bgColor : #fffa8a;
             color: $productPriceColor
         }
     }
+    .img{
+        max-height: 60%;
+    }
 }
-.img{
-    max-height: 60%;
-}
+

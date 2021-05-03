@@ -1,67 +1,152 @@
-.container {
-    width: 60%;
-    margin: 10% auto;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+$headerColor: #c32b0e;
+$numberOfOptions: 4;
+
+body{
+    background: wheat;
 }
 
-.button {
-    color: #eee;
-    text-align: center;
-    background-color: #111;
-    padding: 20px 40px;
-    text-transform: uppercase;
-    text-decoration: none;
-    font-family: arial;
-    font-size: 14px;
-    letter-spacing: 1px;
-    cursor: pointer;
-}
+.container{
+    margin-top: 7rem!important;
+    .img{
+        max-height: 60%;
+    }
+    input[type=radio] {
+        display:none !important;
+    }
 
-.details {
-    display: flex;
-    flex-direction: row-reverse;
-    margin-top: 20px;
-}
+    .sizeName{
+        background-color: #41912b;
+    }
+    .sizeValue{
+        background-color: $headerColor;
+    }
+    .sizeValue, .sizeName{
+        font-weight: 700;
+    }
+    .ingredients{
+        position: absolute;
+        top: 25%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .device {
+        position: absolute;
+        top: 12%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 70%;
+        .range {
+            position: relative;
+            height: 50px;
+            user-select: none;
+            &::before {
+                content: "";
+                position: absolute;
+                height: 2px;
+                width: 100%;
+                width: calc(100% * (#{$numberOfOptions - 1} / #{$numberOfOptions}));
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: #000;
+            }
+            input, label {
+                box-sizing: border-box;
+                flex: 1;
+                user-select: none;
+                cursor: pointer;
+            }
+            label {
+                display: inline-block;
+                position: relative;
+                width: 20%;
+                height: 100%;
+                user-select: none;
+                &::before {
+                    content: attr(data-debt-amount);
+                    position: absolute;
+                    left: 50%;
+                    padding-top: 10px;
+                    transform: translate(-50%, 45px);
+                    font-size: 14px;
+                    letter-spacing: 0.4px;
+                    font-weight: 400;
+                    white-space: nowrap;
+                    opacity: 0.85;
+                    transition: all 0.15s ease-in-out;
+                }
+                &::after {
+                    content: " ";
+                    position: absolute;
+                    left: 50%;
+                    top: 50%;
+                    transform: translate(-50%, -50%);
+                    width: 30px;
+                    height: 30px;
+                    border: 2px solid #000;
+                    background: #fff;
+                    border-radius: 50%;
+                    pointer-events: none;
+                    user-select: none;
+                    z-index: 1;
+                    cursor: pointer;
+                    transition: all 0.15s ease-in-out;
+                }
+                &:hover::after {
+                    transform: translate(-50%, -50%) scale(1.25);
+                }
+            }
+            input {
+                display: none;
+                &:checked {
+                    + label::before {
+                        font-weight: 800;
+                        opacity: 1;
+                    }
+                    + label::after {
+                        border-width: 4px;
+                        transform: translate(-50%, -50%) scale(0.75);
+                    }
+                    ~ .debtAmountPos {
+                        opacity: 1;
+                    }
+                    @for $i from 1 through $numberOfOptions {
+                        &:nth-child(#{$i * 2 - 1}) ~ .debtAmountPos {
+                            left: #{($i * 100%/$numberOfOptions) - 100%/(2*$numberOfOptions)};
+                        }
+                    }
+                }
+            }
+            .debtAmountPos {
+                display: block;
+                position: absolute;
+                top: 50%;
+                width: 12px;
+                height: 12px;
+                background: #000;
+                border-radius: 50%;
+                transition: all 0.15s ease-in-out;
+                transform: translate(-50%, -50%);
+                border: 2px solid #fff;
+                opacity: 0;
+                z-index: 2;
+            }
+        }
+        &:valid {
+            .debtAmountSlider {
+                input {
+                    + label::before {
+                        transform: translate(-50%, 45px) scale(0.9);
+                        transition: all 0.15s linear;
+                    }
+                    &:checked + label::before {
+                        transform: translate(-50%, 45px) scale(1.1);
+                        transition: all 0.15s linear;
+                    }
+                }
+            }
+        }
+    }
 
-.details img {
-    width: 600px;
-    height: 500px;
-}
 
-.detailsLeft,
-.detailsRight {
-    margin: 10px;
-    font-family: arial;
-    width: 200px;
-}
-
-.detailsRight * {
-    padding: 30px;
-    border-bottom: 1px solid rgba(200, 200, 200, 0.5)
-}
-
-.detailsLeft * {
-    padding: 30px;
-    border-bottom: 1px solid rgba(200, 200, 200, 0.5)
-}
-
-
-.cart {
-    margin-left: auto;
-    margin-right: 30%;
-    font-family: arial;
-    text-transform: uppercase;
-
-    color: #eee;
-    text-align: center;
-    background-color: #111;
-    padding: 20px 40px;
-    text-transform: uppercase;
-    text-decoration: none;
-    font-family: arial;
-    font-size: 14px;
-    letter-spacing: 1px;
-    cursor: pointer;
 }

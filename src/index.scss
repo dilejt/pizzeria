@@ -1,4 +1,17 @@
-$bgColor: #dfb587;
-html,body {
-  background-color: $bgColor !important;
+html{
+    min-height: 100vh;
+}
+body{
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-x: 35%;
+    &::after{
+        top: 0;
+        content: '' !important;
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        background: #cd9761b5;
+        z-index: -1;
+    }
 }
