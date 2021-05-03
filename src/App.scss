@@ -5,6 +5,7 @@ $dropdowmMenuBgColor: #fbd771;
 $dropdowmMenuBgColorHover: #f4b043;
 $logoTextColorTwo: #41912b;
 $logoTextColorOne: #d42e22;
+
 a {
     text-decoration: initial !important;
     color: initial !important;
@@ -34,5 +35,9 @@ nav{
     .partTwo{
         color: $logoTextColorTwo;
     }
+    .cart{
+        width: 1.5rem;
+    }
 }
+
 @import "~bootstrap/scss/bootstrap";
