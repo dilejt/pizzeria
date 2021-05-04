@@ -14,9 +14,11 @@ const App = () => {
 
   const [cart, setCart] = useState([])
 
-  const addToCart = (idx) => {
+  const addToCart = (idx, sizeChosenId, checkedSpices) => {
     const product = products.find(item => item.id == idx)
-    const tmp = [...cart, product]
+    let spicesIds = Array.from(checkedSpices, ([name]) => (name));
+    const productInfo = [product,sizeChosenId,spicesIds]
+    const tmp = [...cart, productInfo]
     setCart(tmp)
   }
 

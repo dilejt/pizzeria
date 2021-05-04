@@ -5,13 +5,14 @@ body{
     background-size: cover;
     background-repeat: no-repeat;
     background-position-x: 35%;
+    overflow-x: hidden;
     &::after{
         top: 0;
         content: '' !important;
         width: 100%;
         height: 100%;
         position: fixed;
-        background: #cd9761b5;
+        background: #cd9761e5;
         z-index: -1;
     }
 }
