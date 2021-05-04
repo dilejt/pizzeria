@@ -51,7 +51,6 @@ const ProductDetails = ({ match, addToCart }) => {
                     </Col>
                     <Col xs={12}>
                         <hr />
-                        <h2>Podsumowanie:</h2>
                         <h4>Cena:</h4>
                         <Button variant="danger" className="mt-3" onClick={() => addToCart(product.id,size,checkedSpices)}>Dodaj do koszyka</Button>
                     </Col>

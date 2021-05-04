@@ -24,11 +24,11 @@ const App = () => {
 
   const dropDownList = products.map(product => {
     return (
-        <NavDropdown.Item key={product.id}>
-          <Link to={`/details/${product.id}`}>
-            {product.name}
-          </Link>
-        </NavDropdown.Item>
+      <NavDropdown.Item key={product.id}>
+        <Link to={`/details/${product.id}`}>
+          {product.name}
+        </Link>
+      </NavDropdown.Item>
     )
   })
 
