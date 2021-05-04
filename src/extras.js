@@ -13,25 +13,25 @@ const extras = [
     },
     {
         id: 3,
-        name: 'garlic',
+        name: 'sos czosnkowy',
         price: 1,
         img: '/imgs/garlic.png'
     },
     {
         id: 4,
-        name: 'mushrooms',
+        name: 'pieczarki',
         price: 2,
         img: '/imgs/mushrooms.png'
     },
     {
         id: 5,
-        name: 'olives',
+        name: 'oliwki',
         price: 4,
         img: '/imgs/olives.png'
     },
     {
         id: 6,
-        name: 'hot',
+        name: 'ostry sos',
         price: 2,
         img: '/imgs/hot.png'
     }
