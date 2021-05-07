@@ -1,26 +1,33 @@
 import React, { useState } from 'react'
 import products from './products'
 import extras from './extras'
-import { Container, Row, Col, Image, Button } from 'react-bootstrap';
+import { Container, Row, Col, Image, Button } from 'react-bootstrap'
 import styles from './ProductDetails.module.scss'
 
+let spicesIds = []
 const ProductDetails = ({ match, addToCart }) => {
 
-    document.body.style.backgroundImage = "none";
+    document.body.style.backgroundImage = "none"
 
-    const [size, setSize] = useState()
+    const [size, setSize] = useState(1)
     const [checkedSpices, setCheckedSpices] = useState(new Map())
-
+    const [extrasPrice, setExtrasPrice] = useState(0)
     const product = products.find(prod => match.params.id == prod.id)
 
     const handleCheckedChange = (id) => {
+        let sumExtras = 0
         let modifiedMap = checkedSpices
         if(checkedSpices.get(id)) 
             modifiedMap.delete(id)
         else 
             modifiedMap.set(id, true)
         setCheckedSpices(modifiedMap)
-    };
+        spicesIds = Array.from(checkedSpices, ([name]) => (name))
+        spicesIds.map((id)=> {
+            sumExtras = (sumExtras + extras[id-1].price)
+        })
+        setExtrasPrice(sumExtras)
+    }
 
     const priceChose = (key) =>{
         switch (key){
@@ -51,14 +58,17 @@ const ProductDetails = ({ match, addToCart }) => {
                     </Col>
                     <Col xs={12}>
                         <hr />
-                        <h4>Cena:</h4>
-                        <Button variant="danger" className="mt-3" onClick={() => addToCart(product.id,size,checkedSpices)}>Dodaj do koszyka</Button>
+                        <h4>Sumarycznie: {product.price[size] + extrasPrice}{ 'zł'}</h4>
+                        <Button variant="danger" className="mt-3" onClick={() => addToCart(product.id,priceChose(size),spicesIds,product.price[size] + extrasPrice)}>Dodaj do koszyka</Button>
                     </Col>
                 </Col>
                 <Col lg={5} sm={12} className="text-dark">
                     <Col xs={12}>
                         <div className={styles.device}>
                             <h1 className="text-center pb-4 font-weight-bold">Wybierz rozmiar:</h1>
+                            {product.price.map((_,key) => (
+                                <span key={key} className={styles.size}>{priceChose(key)}</span>
+                            ))}
                             <Row className={styles.range}>
                             {product.price.map((price,key) => (
                                 <React.Fragment key={key}>
@@ -67,9 +77,7 @@ const ProductDetails = ({ match, addToCart }) => {
                                         :
                                         <input type="radio" name="size" id={key} value={key} onClick={() => setSize(key)}/>
                                     }
-                                    <label className="text-center" htmlFor={key} price={price+" zł"}>
-                                        <span className={styles.size}>{() => priceChose(key)}</span>
-                                    </label>
+                                    <label htmlFor={key} price={price+" zł"}></label>
                                 </React.Fragment>
                             ))}
                             <div className={styles.point}></div>

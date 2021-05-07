@@ -18,15 +18,21 @@ $numberOfOptions: 4;
         transform: translate(-50%, -50%);
     }
     .device {
+        .size{
+            font-weight: 700;
+            top: 50%;
+            position: absolute;
+            text-align: center;
+            @for $i from 1 through ($numberOfOptions + 1) {
+                &:nth-child(4n + #{$i}) {
+                    left: #{($i * 100%/$numberOfOptions) - 100%/($numberOfOptions/1.66)};
+                }
+            }
+        }
         .range {
             position: relative;
             height: 50px;
             user-select: none;
-            .size{
-                font-weight: 700;
-                top: -30%;
-                position: relative;
-            }
             &::before {
                 content: "";
                 position: absolute;
@@ -84,7 +90,6 @@ $numberOfOptions: 4;
             input {
                 display: none;
                 &:checked {
-
                     + label::before {
                         color: $redFont;
                         transform-origin: 77% -15%;
