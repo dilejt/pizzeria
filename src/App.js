@@ -6,29 +6,26 @@ import products from './products'
 import { Link } from 'react-router-dom'
 import './App.scss'
 import Cart from './Cart'
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { Navbar,Nav,NavDropdown,Container } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css'
+import { Navbar,Nav,NavDropdown,Container } from 'react-bootstrap'
 
 
 const App = () => {
 
   const [cart, setCart] = useState([])
 
-  const addToCart = (idx, sizeChosenId, checkedSpices) => {
+  const addToCart = (idx, size, extrasIdsList, finalPrice) => {
     const product = products.find(item => item.id == idx)
-    let spicesIds = Array.from(checkedSpices, ([name]) => (name));
-    const productInfo = [product,sizeChosenId,spicesIds]
+    const productInfo = [product,size,extrasIdsList,finalPrice]
     const tmp = [...cart, productInfo]
     setCart(tmp)
   }
 
   const dropDownList = products.map(product => {
     return (
-      <NavDropdown.Item key={product.id}>
-        <Link to={`/details/${product.id}`}>
+        <Link key={product.id} className="dropdown-item" to={`/details/${product.id}`}>
           {product.name}
         </Link>
-      </NavDropdown.Item>
     )
   })
 

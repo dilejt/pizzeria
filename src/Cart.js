@@ -1,53 +1,33 @@
 import React, { useState } from 'react'
 import styles from './Cart.module.scss'
 import { Link } from 'react-router-dom'
-import { Container, Row, Col, Image, Button } from 'react-bootstrap';
+import { Container, Row, Col, Image, Button } from 'react-bootstrap'
 import extras from './extras'
 
 let priceArray = []
 const Cart = ({ cart }) => {
     
-    document.body.style.backgroundImage = "url('/imgs/backgroud.jpg')";
+    document.body.style.backgroundImage = "url('/imgs/backgroud.jpg')"
 
-    let itemPrice = 0
-    let extrasPrice = 0
     let summaryPrice = 0
     
-    const [quantity, setQuantity] = useState(0);
-    const [idKey, setIdKey] = useState("");
-
+    const [quantity, setQuantity] = useState(0)
+    const [idKey, setIdKey] = useState("start")
     cart.map((item,key) => {
-        item[2].map((id)=> {
-            extrasPrice += (extrasPrice + extras[id-1].price)
-        })
         if(idKey==key){
             if(quantity<=0) setQuantity(1)
-            itemPrice = (item[0].price[item[1]] + extrasPrice)
-            itemPrice *= quantity
-            priceArray[key] = itemPrice
-        }else if(idKey==""){ // first render
-            itemPrice = (item[0].price[item[1]] + extrasPrice)
-            priceArray[key] = itemPrice
+            priceArray[key] = item[3] * quantity
+        }else if(idKey=="start"){ // first render
+            priceArray[key] = item[3]
+            console.log(priceArray)
         }
         summaryPrice = summaryPrice + priceArray[key]
-        extrasPrice = 0
-        itemPrice = 0
     })
 
     const updateQuantity = (val,key) => {
         setQuantity(val)
         setIdKey(key)
         summaryPrice = 0
-    };
-
-    const showSize = (id) => {
-        switch (id){
-            case 0: return '22cm'
-            case 1: return '32cm'
-            case 2: return '45cm'
-            case 3: return '70cm'
-            default: return ''
-        }
     }
 
     return (
@@ -68,7 +48,7 @@ const Cart = ({ cart }) => {
                                                 <h4 className="d-inline">
                                                     <Link className="font-weight-bold d-block pt-3 pt-md-0" to={`/details/${item[0].id}`}>{item[0].name}</Link>
                                                 </h4>
-                                                <h5 className="font-italic">{showSize(item[1])}</h5>
+                                                <h5 className="font-italic">{item[1]}</h5>
                                                 <div className={styles.productInfo}>
                                                     {item[0].ingredients.map((name,key)=> (
                                                         <div key={key}>{name}</div>
@@ -83,7 +63,7 @@ const Cart = ({ cart }) => {
                                             </Col>
                                             <Col md={4} className="text-md-center mt-5">
                                                 <label htmlFor="quantity">Ilość:</label><br />
-                                                <input id={"quantity"+key} type="number" min="1" max="99" className="w-50 text-md-center pl-2 pr-2 pt-1 pb-1" onChange={e => updateQuantity(e.target.value,key)}/>
+                                                <input id={"quantity"+key} defaultValue="1" type="number" min="1" max="99" className="w-50 text-md-center pl-2 pr-2 pt-1 pb-1" onChange={e => updateQuantity(e.target.value,key)}/>
                                             </Col>
                                             <Col md={3} className={styles.price}>
                                                 <span>{priceArray[key]}{' zł'}</span>
