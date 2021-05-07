@@ -62,7 +62,11 @@ const ProductDetails = ({ match, addToCart }) => {
                             <Row className={styles.range}>
                             {product.price.map((price,key) => (
                                 <React.Fragment key={key}>
-                                    <input type="radio" name="size" id={key} value={key} onClick={() => setSize(key)}/>
+                                    {key==1?
+                                        <input defaultChecked type="radio" name="size" id={key} value={key} onClick={() => setSize(key)}/>
+                                        :
+                                        <input type="radio" name="size" id={key} value={key} onClick={() => setSize(key)}/>
+                                    }
                                     <label className="text-center" htmlFor={key} price={price+" zł"}>
                                         <span className={styles.size}>{() => priceChose(key)}</span>
                                     </label>

@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import { Container, Row, Col, Image, Button } from 'react-bootstrap';
 import extras from './extras'
 
+let priceArray = []
 const Cart = ({ cart }) => {
     
     document.body.style.backgroundImage = "url('/imgs/backgroud.jpg')";
@@ -11,40 +12,33 @@ const Cart = ({ cart }) => {
     let itemPrice = 0
     let extrasPrice = 0
     let summaryPrice = 0
-    let priceArray = []
     
     const [quantity, setQuantity] = useState(0);
-    const [idKey, setIdKey] = useState(0);
+    const [idKey, setIdKey] = useState("");
 
-    const calcPrice = () => {
-        priceArray = []
-        cart.map((item,key) => {
-            if(item[1]==null) item[1]=1 // if size of pizza not selected choose second option
-            item[2].map((id)=> {
-                extrasPrice += (extrasPrice + extras[id-1].price)
-            })
-            if(idKey==key){
-                if(quantity<=0) setQuantity(1)
-                itemPrice = (item[0].price[item[1]] + extrasPrice) * quantity
-            }else{
-                itemPrice = (item[0].price[item[1]] + extrasPrice)
-            }
-            summaryPrice = summaryPrice + itemPrice
-            priceArray.push(itemPrice)
-            console.log(priceArray)
-            extrasPrice = 0
-            itemPrice = 0
+    cart.map((item,key) => {
+        item[2].map((id)=> {
+            extrasPrice += (extrasPrice + extras[id-1].price)
         })
-    }
+        if(idKey==key){
+            if(quantity<=0) setQuantity(1)
+            itemPrice = (item[0].price[item[1]] + extrasPrice)
+            itemPrice *= quantity
+            priceArray[key] = itemPrice
+        }else if(idKey==""){ // first render
+            itemPrice = (item[0].price[item[1]] + extrasPrice)
+            priceArray[key] = itemPrice
+        }
+        summaryPrice = summaryPrice + priceArray[key]
+        extrasPrice = 0
+        itemPrice = 0
+    })
 
     const updateQuantity = (val,key) => {
         setQuantity(val)
         setIdKey(key)
         summaryPrice = 0
-        calcPrice()
     };
-
-    calcPrice()
 
     const showSize = (id) => {
         switch (id){
@@ -89,7 +83,7 @@ const Cart = ({ cart }) => {
                                             </Col>
                                             <Col md={4} className="text-md-center mt-5">
                                                 <label htmlFor="quantity">Ilość:</label><br />
-                                                <input id={"quantity"+key} type="number" placeholder="1" min="1" max="99" className="w-50 text-md-center pl-2 pr-2 pt-1 pb-1" onChange={e => updateQuantity(e.target.value,key)}/>
+                                                <input id={"quantity"+key} type="number" min="1" max="99" className="w-50 text-md-center pl-2 pr-2 pt-1 pb-1" onChange={e => updateQuantity(e.target.value,key)}/>
                                             </Col>
                                             <Col md={3} className={styles.price}>
                                                 <span>{priceArray[key]}{' zł'}</span>
