@@ -59,7 +59,7 @@ const ProductDetails = ({ match, addToCart }) => {
                     <Col xs={12}>
                         <hr />
                         <h4>Sumarycznie: {product.price[size] + extrasPrice}{ 'zł'}</h4>
-                        <Button variant="danger" className="mt-3" onClick={() => addToCart(product.id,priceChose(size),spicesIds,product.price[size] + extrasPrice)}>Dodaj do koszyka</Button>
+                        <Button id={styles.buyButton} variant="danger" className="mt-3" onClick={() => addToCart(product.id,priceChose(size),spicesIds,product.price[size] + extrasPrice)}>Dodaj do koszyka</Button>
                     </Col>
                 </Col>
                 <Col lg={5} sm={12} className="text-dark">

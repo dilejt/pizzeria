@@ -28,7 +28,6 @@ const App = () => {
         </Link>
     )
   })
-
   return (
     <BrowserRouter>
       <Navbar fluid="md" fixed="top" expand="lg">
@@ -53,7 +52,7 @@ const App = () => {
       </Navbar>
       <Route path="/" exact component={ProductList} />
       <Route path="/details/:id" render={(props) => <ProductDetails {...props} addToCart={addToCart} />} />
-      <Route path="/cart" render={(props) => <Cart {...props} cart={cart} />} />
+      <Route path="/cart" render={(props) => <Cart onChange={newCart => setCart(newCart)} {...props} cart={cart} />} />
     </BrowserRouter>
   )
 }

@@ -5,21 +5,23 @@ import { Container, Row, Col, Image, Button } from 'react-bootstrap'
 import extras from './extras'
 
 let priceArray = []
-const Cart = ({ cart }) => {
-    
+let items = []
+const Cart = props => {
+
     document.body.style.backgroundImage = "url('/imgs/backgroud.jpg')"
 
     let summaryPrice = 0
     
     const [quantity, setQuantity] = useState(0)
     const [idKey, setIdKey] = useState("start")
-    cart.map((item,key) => {
+    const [itemList, setItemList] = useState(props.cart)
+
+    itemList.map((item,key) => {
         if(idKey==key){
             if(quantity<=0) setQuantity(1)
             priceArray[key] = item[3] * quantity
         }else if(idKey=="start"){ // first render
             priceArray[key] = item[3]
-            console.log(priceArray)
         }
         summaryPrice = summaryPrice + priceArray[key]
     })
@@ -30,13 +32,22 @@ const Cart = ({ cart }) => {
         summaryPrice = 0
     }
 
+    const deleteItem = (id) => {
+        items = itemList.filter(item => item !== itemList[id])
+        props.onChange(items)
+        setItemList(items)
+    }
+
     return (
         <Container className={styles.container}>
             <div className={styles.content}>
                 <Row>
                     <Col md={12} lg={8}>
-                        {cart.map((item,key) => (
+                        {itemList.map((item,key) => (
                         <div className={styles.product} key={key}>
+                            <Button className={styles.deleteButton} onClick={() => deleteItem(key)}>
+                                <span aria-hidden="true">&times;</span>
+                            </Button>
                             <Row>
                                 <Col md={3}>
                                     <Image fluid src={item[0].img} className="ml-md-3 mt-md-3" />

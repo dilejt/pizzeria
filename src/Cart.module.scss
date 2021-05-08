@@ -1,58 +1,66 @@
+$red : #da4d4a;
+$green: #36b632;
 .container{
     a:hover{
         color: initial !important;
     }
     margin-top: 7rem!important;
-    & .content{
+    .content{
         box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.5);
-        background-color: #da4d4a;
-        & .productContainer{
-            background-color: #36b632;
+        background-color: $red;
+        .productContainer{
+            background-color: $green;
+        }
+        .deleteButton{
+            float: initial;
+            background-color: $green;
+            border: 0;
+            outline: none;
         }
     }
-    & .product{
+    .product{
         margin-bottom: 20px;
         padding-bottom: 20px;
-        & .info{
+        .info{
             padding-top: 0px;
             text-align: center;
-            & input[type="number"]{
+            input[type="number"]{
                 border: 0;
                 outline: 0;
                 border-radius: 5em;
                 box-sizing: border-box;
             }
-            & .productInfo{
+            .productInfo{
                 font-size: 14px;
                 margin-top: 15px;
             }
-            & .price{
+            .price{
                 margin-top: 15px;
                 font-weight: bold;
                 font-size: 22px;
             }
         }
     }
-    & .summary{
-        border-top: 20px solid #da4d4a;
-        background-color: #36b632;
+    .summary{
+        border-top: 20px solid $red;
+        background-color: $green;
         padding: 30px;
-        & h3{
+        h3{
             text-align: center;
             font-size: 1.3em;
             font-weight: 600;
             padding-top: 20px;
             padding-bottom: 20px;
         }
-        & .summaryItem{
+        .summaryItem{
             padding-bottom: 10px;
             padding-top: 10px;
             border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-            & .text{
+            .text{
                 font-size: 1em;
                 font-weight: 600;
             }
-            & .price{
+            .price{
                 font-size: 1em;
                 float: right;
             }
@@ -61,12 +69,15 @@
 }
 @media (min-width: 768px) {
 	.container {
+        .deleteButton{
+            float: right !important;
+        }
         .product{
             padding-top: 20px;
-            & .info {
+            .info {
                 padding-top: 25px;
                 text-align: left;
-                & .price {
+                .price {
                     margin-top: 3rem !important;
                     font-weight: bold;
                     font-size: 22px;
