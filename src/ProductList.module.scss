@@ -14,6 +14,10 @@ $bgColor : #fffa8a;
     }
     .img{
         max-height: 60%;
+        transition: all .15s ease-in-out;
+        &:hover{
+            transform: scale(1.02);
+        }
     }
 }
 
