@@ -34,7 +34,7 @@ const App = () => {
         <Container fluid="md">
           <Navbar.Brand>
             <Link to='/' className="nav-link">
-              <img alt="logo" src='/logo.png' width="30" height="30" className="d-inline-block align-top" /> <span className="partOne">Pizzeri</span><span className="partTwo">no. 1</span>
+              <img alt="logo" src='logo.png' width="30" height="30" className="d-inline-block align-top" /> <span className="partOne">Pizzeri</span><span className="partTwo">no. 1</span>
             </Link>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -45,7 +45,7 @@ const App = () => {
               </NavDropdown>
             </Nav>
             <Nav className="ml-auto">
-              <Link to='/cart' className="nav-link"><img alt='Koszyk' className="cart" src="/imgs/cart.svg" /></Link>
+              <Link to='/cart' className="nav-link"><img alt='Koszyk' className="cart" src="imgs/cart.svg" /></Link>
             </Nav>
           </Navbar.Collapse>
         </Container>
