@@ -6,7 +6,7 @@ import { Container, Row, Col, Image, Button } from 'react-bootstrap';
 
 const ProductList = () => {
 
-    document.body.style.backgroundImage = "url('/imgs/backgroud.jpg')";
+    document.body.style.backgroundImage = "url('./imgs/backgroud.jpg')";
 
     const htmlList = products.map(product => {
         return (
@@ -14,7 +14,7 @@ const ProductList = () => {
                 <Image src={product.img} className={styles.img} fluid rounded />
                 <h1 className={styles.productName}> {product.name} </h1>
                 <h5 className={styles.productPrice}>Cena od: <span className="font-weight-bold">{product.price[0]} zł</span></h5>
-                <Link to={`/details/${product.id}`}><Button variant="danger" className="mt-3">Wybierz</Button></Link>
+                <Link to={`./details/${product.id}`}><Button variant="danger" className="mt-3">Wybierz</Button></Link>
             </Col>
         )
     })

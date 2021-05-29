@@ -23,7 +23,7 @@ const App = () => {
 
   const dropDownList = products.map(product => {
     return (
-        <Link key={product.id} className="dropdown-item" to={`/details/${product.id}`}>
+        <Link key={product.id} className="dropdown-item" to={`./details/${product.id}`}>
           {product.name}
         </Link>
     )
@@ -45,14 +45,14 @@ const App = () => {
               </NavDropdown>
             </Nav>
             <Nav className="ml-auto">
-              <Link to='/cart' className="nav-link"><img alt='Koszyk' className="cart" src="/imgs/cart.svg" /></Link>
+              <Link to='./cart' className="nav-link"><img alt='Koszyk' className="cart" src="./imgs/cart.svg" /></Link>
             </Nav>
           </Navbar.Collapse>
         </Container>
       </Navbar>
-      <Route path="/" exact component={ProductList} />
-      <Route path="/details/:id" render={(props) => <ProductDetails {...props} addToCart={addToCart} />} />
-      <Route path="/cart" render={(props) => <Cart onChange={newCart => setCart(newCart)} {...props} cart={cart} />} />
+      <Route path="./" exact component={ProductList} />
+      <Route path="./details/:id" render={(props) => <ProductDetails {...props} addToCart={addToCart} />} />
+      <Route path="./cart" render={(props) => <Cart onChange={newCart => setCart(newCart)} {...props} cart={cart} />} />
     </BrowserRouter>
   )
 }

@@ -41,11 +41,11 @@ const ProductDetails = ({ match, addToCart }) => {
 
     return (
         <Container fluid className={styles.container}>
-            <Image src='/imgs/pizza.png' className={styles.pizza} fluid/>
+            <Image src='./imgs/pizza.png' className={styles.pizza} fluid/>
             <Row>
                 <Col lg={5} sm={12} className="text-center">
                     <Col xs={12}>
-                        <Image src='/imgs/recipe.png' fluid/>
+                        <Image src='./imgs/recipe.png' fluid/>
                         <div className={styles.ingredients}>
                             <h3>{product.name}</h3>
                             Składniki podstawowe:
