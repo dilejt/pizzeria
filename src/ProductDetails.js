@@ -43,7 +43,7 @@ const ProductDetails = ({ match, addToCart }) => {
         <Container fluid className={styles.container}>
             <Image src='/imgs/pizza.png' className={styles.pizza} fluid/>
             <Row>
-                <Col lg={5} sm={12} className="text-center">
+                <Col lg={5} md={12} className="text-center order-lg-1 order-2">
                     <Col xs={12}>
                         <Image src='/imgs/recipe.png' fluid/>
                         <div className={styles.ingredients}>
@@ -62,7 +62,7 @@ const ProductDetails = ({ match, addToCart }) => {
                         <Button id={styles.buyButton} variant="danger" className="mt-3" onClick={() => addToCart(product.id,priceChose(size),spicesIds,product.price[size] + extrasPrice)}>Dodaj do koszyka</Button>
                     </Col>
                 </Col>
-                <Col lg={5} sm={12} className="text-dark">
+                <Col xl={5} lg={6} md={12} className="text-dark order-lg-2 order-1">
                     <Col xs={12}>
                         <div className={styles.device}>
                             <h1 className="text-center pb-4 font-weight-bold">Wybierz rozmiar:</h1>
@@ -101,7 +101,6 @@ const ProductDetails = ({ match, addToCart }) => {
                         </Row>
                     </Col>
                 </Col>
-                <Col lg={2} className="sm-none"></Col>
             </Row>
         </Container>
     )
