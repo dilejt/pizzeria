@@ -6,7 +6,7 @@ import { Container, Row, Col, Image, Button } from 'react-bootstrap';
 
 const ProductList = () => {
 
-    document.body.style.backgroundImage = "url('imgs/backgroud.jpg')";
+    document.body.style.backgroundImage = "url('/imgs/backgroud.jpg')";
 
     const htmlList = products.map(product => {
         return (

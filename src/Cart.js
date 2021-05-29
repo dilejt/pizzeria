@@ -8,7 +8,7 @@ let priceArray = []
 let items = []
 const Cart = props => {
 
-    document.body.style.backgroundImage = "url('imgs/backgroud.jpg')"
+    document.body.style.backgroundImage = "url('/imgs/backgroud.jpg')"
 
     let summaryPrice = 0
     
