@@ -8,7 +8,7 @@ let priceArray = []
 let items = []
 const Cart = props => {
 
-    document.body.style.backgroundImage = "url('./imgs/backgroud.jpg')"
+    document.body.style.backgroundImage = "url('/imgs/backgroud.jpg')"
 
     let summaryPrice = 0
     
@@ -57,7 +57,7 @@ const Cart = props => {
                                         <Row>
                                             <Col md={5} className="pl-xl-5">
                                                 <h4 className="d-inline">
-                                                    <Link className="font-weight-bold d-block pt-3 pt-md-0" to={`./details/${item[0].id}`}>{item[0].name}</Link>
+                                                    <Link className="font-weight-bold d-block pt-3 pt-md-0" to={`/details/${item[0].id}`}>{item[0].name}</Link>
                                                 </h4>
                                                 <h5 className="font-italic">{item[1]}</h5>
                                                 <div className={styles.productInfo}>
