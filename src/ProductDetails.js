@@ -56,10 +56,9 @@ const ProductDetails = ({ match, addToCart }) => {
                             ))}
                         </div>
                     </Col>
-                    <Col xs={12}>
-                        <hr />
+                    <Col xs={12} className="pt-4">
                         <h4>Sumarycznie: {product.price[size] + extrasPrice}{ 'zł'}</h4>
-                        <Button id={styles.buyButton} variant="danger" className="mt-3" onClick={() => addToCart(product.id,priceChose(size),spicesIds,product.price[size] + extrasPrice)}>Dodaj do koszyka</Button>
+                        <Button id={styles.buyButton} variant="danger" className="my-3 mb-lg-0" onClick={() => addToCart(product.id,priceChose(size),spicesIds,product.price[size] + extrasPrice)}>Dodaj do koszyka</Button>
                     </Col>
                 </Col>
                 <Col xl={5} lg={6} md={12} className="text-dark order-lg-2 order-1">
@@ -87,7 +86,7 @@ const ProductDetails = ({ match, addToCart }) => {
                     <Col xs={12} className="mt-5">
                         <Row>
                             <Col xs={12}>
-                                <h2 className="text-center pb-3 font-weight-bold">Wybierz dodatki:</h2>
+                                <h2 className="text-center py-3 font-weight-bold">Wybierz dodatki:</h2>
                             </Col>
                             {extras.map((item) => (
                                 <Col xs={12} sm={6} className={styles.extra} key={item.id}>

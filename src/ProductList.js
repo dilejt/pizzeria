@@ -10,11 +10,11 @@ const ProductList = () => {
 
     const htmlList = products.map(product => {
         return (
-            <Col key={product.id} md="6">
+            <Col key={product.id} lg={6}>
                 <Image src={product.img} className={styles.img} fluid rounded />
                 <h1 className={styles.productName}> {product.name} </h1>
                 <h5 className={styles.productPrice}>Cena od: <span className="font-weight-bold">{product.price[0]} zł</span></h5>
-                <Link to={`/details/${product.id}`}><Button variant="danger" className="mt-3">Wybierz</Button></Link>
+                <Link to={`/details/${product.id}`}><Button variant="danger" className="mt-3 mb-2">Wybierz</Button></Link>
             </Col>
         )
     })

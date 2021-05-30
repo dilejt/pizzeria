@@ -1,3 +1,5 @@
+@import "~bootstrap/scss/bootstrap";
+
 $redFont: #c32b0e;
 $redBg: #da4d4a;
 $greenBg: #41912b;
@@ -9,6 +11,9 @@ $numberOfOptions: 4;
         position: absolute;
         right: -33%;
         max-width: 50%;
+        @include media-breakpoint-down(md) {
+            display: none;
+        }
     }
     .ingredients{
         position: absolute;
@@ -21,6 +26,11 @@ $numberOfOptions: 4;
         background-color: $greenBg !important;
     }
     .device {
+        h1{
+            @include media-breakpoint-down(xs){
+                font-size: calc(8px + 5vw);
+            }
+        }
         .size{
             font-weight: 700;
             top: 50%;
@@ -30,6 +40,9 @@ $numberOfOptions: 4;
                 &:nth-child(4n + #{$i}) {
                     left: #{($i * 100%/$numberOfOptions) - 100%/($numberOfOptions/1.66)};
                 }
+            }
+            @include media-breakpoint-down(xs){
+                top: 43%;
             }
         }
         .range {
@@ -68,6 +81,9 @@ $numberOfOptions: 4;
                     white-space: nowrap;
                     opacity: 0.85;
                     transition: all 0.15s ease-in-out;
+                    @include media-breakpoint-down(xs){
+                        font-size: calc(2px + 4vw);
+                    }
                 }
                 &::after {
                     content: " ";
@@ -175,12 +191,10 @@ $numberOfOptions: 4;
             }
         }
     }
-    
-}
-
-@media screen and (max-width: 768px){
-    .pizza{
-        display: none;
+    h2{
+        @include media-breakpoint-down(xs){
+            font-size: calc(8px + 5vw);
+        }
     }
 }
 
