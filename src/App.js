@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import ProductList from './ProductList'
 import ProductDetails from './ProductDetails'
-import { BrowserRouter, Route, Link } from 'react-router-dom'
+import { HashRouter, Route, Link } from 'react-router-dom'
 import products from './products'
 import './App.scss'
 import Cart from './Cart'
@@ -28,7 +28,7 @@ const App = () => {
     )
   })
   return (
-    <BrowserRouter>
+    <HashRouter basename={process.env.PUBLIC_URL}>
       <Navbar fluid="md" fixed="top" expand="lg">
         <Container fluid="md">
           <Navbar.Brand>
@@ -52,7 +52,7 @@ const App = () => {
       <Route path="/" exact component={ProductList} />
       <Route path="/details/:id" render={(props) => <ProductDetails {...props} addToCart={addToCart} />} />
       <Route path="/cart" render={(props) => <Cart onChange={newCart => setCart(newCart)} {...props} cart={cart} />} />
-    </BrowserRouter>
+    </HashRouter>
   )
 }
 
