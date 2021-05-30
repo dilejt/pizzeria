@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/pizzeria/static/css/main.74815b7c.chunk.css",
+    "main.js": "/pizzeria/static/js/main.9f4f9612.chunk.js",
+    "main.js.map": "/pizzeria/static/js/main.9f4f9612.chunk.js.map",
+    "runtime-main.js": "/pizzeria/static/js/runtime-main.d2475004.js",
+    "runtime-main.js.map": "/pizzeria/static/js/runtime-main.d2475004.js.map",
+    "static/css/2.4c97ca4f.chunk.css": "/pizzeria/static/css/2.4c97ca4f.chunk.css",
+    "static/js/2.79a13741.chunk.js": "/pizzeria/static/js/2.79a13741.chunk.js",
+    "static/js/2.79a13741.chunk.js.map": "/pizzeria/static/js/2.79a13741.chunk.js.map",
+    "static/js/3.f0e90928.chunk.js": "/pizzeria/static/js/3.f0e90928.chunk.js",
+    "static/js/3.f0e90928.chunk.js.map": "/pizzeria/static/js/3.f0e90928.chunk.js.map",
+    "index.html": "/pizzeria/index.html",
+    "static/css/2.4c97ca4f.chunk.css.map": "/pizzeria/static/css/2.4c97ca4f.chunk.css.map",
+    "static/css/main.74815b7c.chunk.css.map": "/pizzeria/static/css/main.74815b7c.chunk.css.map",
+    "static/js/2.79a13741.chunk.js.LICENSE.txt": "/pizzeria/static/js/2.79a13741.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d2475004.js",
+    "static/css/2.4c97ca4f.chunk.css",
+    "static/js/2.79a13741.chunk.js",
+    "static/css/main.74815b7c.chunk.css",
+    "static/js/main.9f4f9612.chunk.js"
+  ]
+}
