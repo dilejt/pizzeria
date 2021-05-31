@@ -1,6 +1,6 @@
 # Pizzeria
 > React website created with Node.js, React.
-> Live demo [_here_](http://dilejt.github.io/pizzeria). <!-- If you have the project hosted somewhere, include the link here. -->
+> Live demo [_here_](http://dilejt.github.io/pizzeria).
 
 ## Table of Contents
 * [General Info](#general-information)
@@ -38,8 +38,8 @@ Then visit [`http://localhost:3000`](http://localhost:3000).
 
 
 ## Usage
-You can add your own extras here.
-
+You can add your own extras here.<br />
+*extras.js*
 ```
 const extras = [
     {
@@ -82,8 +82,8 @@ const extras = [
 ]
 ```
 
-You can add your own pizzas here.
-
+You can add your own pizzas here.<br />
+*products.js*
 ```
 const products = [
     {
@@ -118,6 +118,19 @@ const products = [
 ]
 ```
 
+#### Branch gh-pages contains changes made in order to properly host the site on github pages
+- For proper path routing
+<br />*App.js*
+```diff
+- <BrowserRouter>
++ <HashRouter basename={process.env.PUBLIC_URL}>
+```
+
+- For correct display of images
+```diff
+- img: '/imgs/cola.png'
++ img: 'imgs/cola.png'
+```
 
 ## Contact
 Created by [@Damian Jancewicz](https://www.linkedin.com/in/damian-jancewicz/) - feel free to contact me!
