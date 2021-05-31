@@ -6,12 +6,8 @@
 * [General Info](#general-information)
 * [Technologies Used](#technologies-used)
 * [Features](#features)
-* [Screenshots](#screenshots)
 * [Setup](#setup)
 * [Usage](#usage)
-* [Project Status](#project-status)
-* [Room for Improvement](#room-for-improvement)
-* [Acknowledgements](#acknowledgements)
 * [Contact](#contact)
 
 ## General info
@@ -29,11 +25,6 @@ List the ready features here:
 - CRUD Cart
 - CRUD Extra
 
-
-## Screenshots
-![Example screenshot](./img/screenshot.png)
-<!-- If you have screenshots you'd like to share, include them here. -->
-
 	
 ## Setup
 To run this project, install it locally using npm:
@@ -47,33 +38,85 @@ Then visit [`http://localhost:3000`](http://localhost:3000).
 
 
 ## Usage
-How does one go about using it?
-Provide various use cases and code examples here.
+You can add your own extras here.
 
-`write-your-code-here`
+```
+const extras = [
+    {
+        id: 1,
+        name: 'cola',
+        price: 4,
+        img: '/imgs/cola.png'
+    },
+    {
+        id: 2,
+        name: 'ketchup',
+        price: 1,
+        img: '/imgs/ketchup.png'
+    },
+    {
+        id: 3,
+        name: 'sos czosnkowy',
+        price: 1,
+        img: '/imgs/garlic.png'
+    },
+    {
+        id: 4,
+        name: 'pieczarki',
+        price: 2,
+        img: '/imgs/mushrooms.png'
+    },
+    {
+        id: 5,
+        name: 'oliwki',
+        price: 4,
+        img: '/imgs/olives.png'
+    },
+    {
+        id: 6,
+        name: 'ostry sos',
+        price: 2,
+        img: '/imgs/hot.png'
+    }
 
+]
+```
 
-## Project Status
-Project is: _in progress_ / _complete_ / _no longer being worked on_. If you are no longer working on it, provide reasons why.
+You can add your own pizzas here.
 
+```
+const products = [
+    {
+        id: 1,
+        name: 'Hawajska',
+        price: [13, 22, 34, 51],
+        ingredients: ['ser', 'szynka', 'ananas'],
+        img: '/imgs/hawajska.jpg'
+    },
+    {
+        id: 2,
+        name: 'Carbonara',
+        price: [17, 26 , 42, 58],
+        ingredients: ['ser','wędzony boczek','cebula','pieczarki'],
+        img: '/imgs/carbonara.jpg'
+    },
+    {
+        id: 3,
+        name: 'Cztery sery',
+        price: [15, 25, 41, 57],
+        ingredients: ['ser gouda','favita','camembert','gorgonzola','bazylia'],
+        img: '/imgs/cztery_sery.jpg'
+    },
+    {
+        id: 4,
+        name: 'Capriciosa',
+        price: [15, 22, 32, 51],
+        ingredients: ['ser','pieczarki','szynka'],
+        img: '/imgs/capriciosa.jpg'
+    }
 
-## Room for Improvement
-Include areas you believe need improvement / could be improved. Also add TODOs for future development.
-
-Room for improvement:
-- Improvement to be done 1
-- Improvement to be done 2
-
-To do:
-- Feature to be added 1
-- Feature to be added 2
-
-
-## Acknowledgements
-Give credit here.
-- This project was inspired by...
-- This project was based on [this tutorial](https://www.example.com).
-- Many thanks to...
+]
+```
 
 
 ## Contact
