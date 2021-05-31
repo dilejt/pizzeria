@@ -22,8 +22,8 @@ Project is created with:
 
 ## Features
 List the ready features here:
-- CRUD Cart
-- CRUD Extra
+- CRUD cart
+- CRUD pizza extras
 
 	
 ## Setup
