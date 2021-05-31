@@ -118,7 +118,7 @@ const products = [
 ]
 ```
 
-#### Branch gh-pages contains changes made in order to properly host the site on github pages
+#### Branch [gh-pages](https://github.com/dilejt/pizzeria/tree/gh-pages) contains changes made in order to properly host the site on GitHub Pages
 - For proper path routing
 <br />*App.js*
 ```diff
@@ -131,6 +131,6 @@ const products = [
 - img: '/imgs/cola.png'
 + img: 'imgs/cola.png'
 ```
-
+[Guide](https://dev.to/yuribenjamin/how-to-deploy-react-app-in-github-pages-2a1f) how to deploy repo to GitHub Pages
 ## Contact
 Created by [@Damian Jancewicz](https://www.linkedin.com/in/damian-jancewicz/) - feel free to contact me!
